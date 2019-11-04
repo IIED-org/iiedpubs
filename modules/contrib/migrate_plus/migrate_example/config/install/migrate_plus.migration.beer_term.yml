@@ -19,7 +19,7 @@ migration_tags:
 # Every migration must have a source plugin, which controls the delivery of our
 # source data. In this case, our source plugin has the name "beer_term", which
 # Drupal resolves to the PHP class defined in
-# src/Plugin/migrate/source/PubsTags.php.
+# src/Plugin/migrate/source/BeerTerm.php.
 source:
   plugin: beer_term
 
