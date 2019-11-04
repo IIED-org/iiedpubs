@@ -5,7 +5,16 @@
     "license": "GPL-2.0-or-later",
     "require": {
         "composer/installers": "^1.0.24",
-        "wikimedia/composer-merge-plugin": "^1.4"
+        "wikimedia/composer-merge-plugin": "^1.4",
+        "drupal/migrate_tools": "^4.4",
+        "drupal/migrate_plus": "^4.2",
+        "drupal/migrate_devel": "^1.2@beta",
+        "drupal/migrate_source_csv": "^3.1",
+        "drush/drush": "^9",
+        "drupal/devel": "^2.1",
+        "drupal/admin_toolbar": "^2.0",
+        "drupal/config_devel": "^1.4",
+        "drupal/pathauto": "^1.5"
     },
     "replace": {
         "drupal/core": "^8.7"

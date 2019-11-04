@@ -62,6 +62,7 @@ class SubProcessTest extends MigrateTestCase {
         'source_foo' => 'test',
         'source_id' => 42,
       ] + $source_values,
+      NULL,
     ];
     // This is not used but the interface requires it, so create an empty row.
     $row = new Row($source_values);

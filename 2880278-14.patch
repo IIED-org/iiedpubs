@@ -1,0 +1,26 @@
+diff --git a/core/modules/migrate/src/Plugin/migrate/process/SubProcess.php b/core/modules/migrate/src/Plugin/migrate/process/SubProcess.php
+index c5c5fcab2f..283fa47297 100644
+--- a/core/modules/migrate/src/Plugin/migrate/process/SubProcess.php
++++ b/core/modules/migrate/src/Plugin/migrate/process/SubProcess.php
+@@ -201,6 +201,9 @@ public function transform($value, MigrateExecutableInterface $migrate_executable
+ 
+     if (is_array($value) || $value instanceof \Traversable) {
+       foreach ($value as $key => $new_value) {
++        if (!is_array($new_value)) {
++          continue;
++        }
+         $new_row = new Row($new_value + $source);
+         $migrate_executable->processRow($new_row, $this->configuration['process']);
+         $destination = $new_row->getDestination();
+diff --git a/core/modules/migrate/tests/src/Unit/process/SubProcessTest.php b/core/modules/migrate/tests/src/Unit/process/SubProcessTest.php
+index 1766772efd..d81077399f 100644
+--- a/core/modules/migrate/tests/src/Unit/process/SubProcessTest.php
++++ b/core/modules/migrate/tests/src/Unit/process/SubProcessTest.php
+@@ -62,6 +62,7 @@ public function testSubProcess($process_configuration, $source_values = []) {
+         'source_foo' => 'test',
+         'source_id' => 42,
+       ] + $source_values,
++      NULL,
+     ];
+     // This is not used but the interface requires it, so create an empty row.
+     $row = new Row($source_values);
